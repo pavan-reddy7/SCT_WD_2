@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "DM Sans", Arial, sans-serif;
+  background: #111827;
+  color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(80, 69, 170, 0.2), transparent 30rem),
+    #100f22;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  padding: 0.35rem 1rem 0.65rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.calculator {
+  width: min(90vw, 21.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.8rem;
+  background: #1a1a1f;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+  padding: 1.45rem;
+}
+
+.display {
+  display: flex;
+  height: 8.75rem;
+  max-height: 8.75rem;
+  min-height: 8.75rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  background: #111115;
+  overscroll-behavior: contain;
+  overflow: hidden;
+  text-align: right;
+}
+
+.display__row {
+  width: 100%;
+}
+
+.display__row--current {
+  margin-top: 0.7rem;
+}
+
+.display p {
+  margin: 0;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.display p::-webkit-scrollbar {
+  display: none;
+}
+
+.display__previous {
+  min-height: 1.5rem;
+  color: #94a3b8;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.display__current {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.72rem;
+  margin-top: 1.35rem;
+}
+
+.key {
+  min-height: 4.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.9rem;
+  background: #242429;
+  color: #f8fafc;
+  cursor: pointer;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: 1.25rem;
+  transition:
+    background-color 160ms ease,
+    transform 100ms ease;
+}
+
+.key:hover {
+  background: #303037;
+}
+
+.key:active {
+  transform: scale(0.96);
+}
+
+.key:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid #f8fafc;
+  outline-offset: -4px;
+}
+
+.key--utility {
+  border-color: rgba(255, 111, 118, 0.18);
+  background: #382528;
+  color: #ff7078;
+  font-size: 1rem;
+}
+
+.key--operator {
+  background: #2d294d;
+  color: #a69aff;
+}
+
+.key--operator:hover,
+.key--equals:hover {
+  background: #3a3561;
+}
+
+.key--equals {
+  background: #7768ee;
+}
+
+.key--equals:hover {
+  background: #8a7cff;
+}
+
+.key--wide {
+  grid-column: span 2;
+}
+
+.hint {
+  margin: 0.55rem 0 0;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+@media (max-height: 700px) {
+  .calculator {
+    padding: 1rem;
+  }
+
+  .display {
+    height: 7rem;
+    max-height: 7rem;
+    min-height: 7rem;
+  }
+
+  .keys {
+    gap: 0.55rem;
+    margin-top: 0.75rem;
+  }
+
+  .key {
+    min-height: 3.65rem;
+  }
+}
